@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-      - name: Build docker images
+      - name: Build image
         run: docker build -t oe .
-      - name: Run tests
+      - name: Run container
         run: docker run oe
