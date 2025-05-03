@@ -13,4 +13,4 @@ jobs:
       - name: Build image
         run: docker build -t oe .
       - name: Run container
-        run: docker run oe -v ${{ github.workspace }}:/osm-extracts
+        run: docker run oe
