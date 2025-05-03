@@ -9,4 +9,4 @@ RUN ./aws/install
 COPY extract.sh .
 
 RUN chmod +x extract.sh
-RUN ./extract.sh
+CMD ./extract.sh
