@@ -3,6 +3,8 @@ name: Liechtenstein power
 on:
   schedule:
     - cron: "*/5 * * * *"
+  push:
+    branches: ["master"]
 
 jobs:
   process:
