@@ -10,6 +10,6 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip3 install --upgrade b2
 
 COPY extract.sh .
-
 RUN chmod +x extract.sh
+
 CMD ./extract.sh
