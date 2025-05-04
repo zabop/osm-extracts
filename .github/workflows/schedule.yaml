@@ -14,9 +14,15 @@ jobs:
       - uses: ludeeus/action-shellcheck@master
       - name: Build image
         run: docker build -t oe .
-      - name: Run container
+      - name: Andorra
         run: |
           docker run \
             -e B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
             -e B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
-            oe
+            oe europe/andorra
+      - name: Liechtenstein
+        run: |
+          docker run \
+            -e B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
+            -e B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
+            oe europe/liechtenstein
