@@ -1,4 +1,7 @@
+import datetime
 import boto3
+import time
+import json
 import sys
 import os
 
@@ -15,5 +18,19 @@ client = session.client(
 client.upload_file(
     "dst.gpkg",
     "yosmgm-testing0",
-    sys.argv[1],
+    f"{sys.argv[1]}.gpkg",
+)
+
+timestamp = time.time()
+humanTime = datetime.datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
+
+metadata = {"last-upload": timestamp, "last-upload-human-readable": humanTime}
+
+with open("metadata.json", "w") as f:
+    f.write(json.dumps(metadata))
+
+client.upload_file(
+    "metadata.json",
+    "yosmgm-testing0",
+    f"{sys.argv[1]}.metadata.json",
 )
