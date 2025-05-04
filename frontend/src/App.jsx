@@ -91,7 +91,6 @@ function App() {
           >
             on OSM
           </a>
-          .
         </li>
         <li>
           Contact{" "}
@@ -102,7 +101,7 @@ function App() {
             <a href=""></a>
             Geofabrik
           </a>{" "}
-          (they offer a data offer extraction service).
+          (they offer a data offer extraction service)
         </li>{" "}
         <li>
           {" "}
