@@ -33,4 +33,7 @@ client.upload_file(
     "metadata.json",
     "yosmgm-testing0",
     f"{sys.argv[1]}.metadata.json",
+    ExtraArgs={
+        "ContentType": "application/json",
+    },
 )
