@@ -8,9 +8,9 @@ const regions = [
 ];
 
 const extracts = [
+  { name: "Administrative regions", fname: "administrative_regions.gpkg" },
   { name: "Power", fname: "power.gpkg" },
   { name: "Protected areas", fname: "protected_areas.gpkg" },
-  { name: "Administrative regions", fname: "administrative_regions.gpkg" },
 ];
 
 function ExtractLink({ region, extract }) {
