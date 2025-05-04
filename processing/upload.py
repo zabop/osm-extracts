@@ -5,6 +5,9 @@ import json
 import sys
 import os
 
+region = sys.argv[1]
+dst = sys.argv[2]
+
 session = boto3.session.Session()
 # https://github.com/boto/boto3/issues/4435#issuecomment-2648819900
 os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
@@ -19,9 +22,9 @@ client = session.client(
 )
 
 client.upload_file(
-    "dst.gpkg",
+    f"{region}_{dst}.gpkg",
     "yosmgm-testing0",
-    f"{sys.argv[1]}.gpkg",
+    f"{region}/{dst}.gpkg",
 )
 
 timestamp = time.time()
