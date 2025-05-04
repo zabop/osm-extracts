@@ -31,7 +31,7 @@ function CountryLinks({ region }) {
   return (
     <>
       <h1>{region.name}</h1>
-      {lastUpdated && <p>Last updated: {lastUpdated} UTC</p>}
+      {lastUpdated && <p>Last updated around {lastUpdated} UTC</p>}
       <ul>
         {extracts.map((extract) => (
           <li key={`${region.path}/${extract.fname}`}>

@@ -25,7 +25,7 @@ client.upload_file(
 )
 
 timestamp = time.time()
-humanTime = datetime.datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
+humanTime = datetime.datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M")
 
 metadata = {"last-upload": timestamp, "last-upload-human-readable": humanTime}
 
