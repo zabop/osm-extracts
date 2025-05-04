@@ -22,15 +22,9 @@ function CountryLinks({ region }) {
 
     // Fetch the JSON data
     const fetchMetadata = async () => {
-      try {
-        const response = await fetch(metadataUrl);
-        const data = await response.json();
-        if (data["last-upload-human-readable"]) {
-          setLastUpdated(data["last-upload-human-readable"]);
-        }
-      } catch (error) {
-        console.error("Failed to fetch metadata:", error);
-      }
+      const response = await fetch(metadataUrl);
+      const data = await response.json();
+      setLastUpdated(data["last-upload-human-readable"]);
     };
 
     fetchMetadata();
