@@ -32,9 +32,9 @@ jobs:
             --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
             --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
             oe europe/liechtenstein
-      - name: Germany
+      - name: France
         run: |
           docker run \
             --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
             --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
-            oe europe/germany
+            oe europe/france
