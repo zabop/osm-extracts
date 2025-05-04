@@ -22,7 +22,7 @@ client = session.client(
 )
 
 client.upload_file(
-    f"{'_'.join(region.split("/"))}_{dst}.gpkg",
+    f"{'_'.join(region.split("/"))}_{dst}.gpkg.zip",
     "yosmgm-testing0",
     f"{region}/{dst}.gpkg.zip",
 )

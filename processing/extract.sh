@@ -14,6 +14,6 @@ osmium tags-filter -o filtered.osm.pbf latest.osm.pbf "${filter}"
 
 echo "Writing ${region%%/*}_${region##*/}_${dst}.gpkg" 
 ogr2ogr "${region%%/*}_${region##*/}_${dst}.gpkg" filtered.osm.pbf "$@"
-zip dst.gpkg.zip dst.gpkg
+zip "${region%%/*}_${region##*/}_${dst}.gpkg.zip" "${region%%/*}_${region##*/}_${dst}.gpkg" 
 
 python3 upload.py "${region}" "${dst}"
