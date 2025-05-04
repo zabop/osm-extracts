@@ -9,9 +9,11 @@ RUN apt-get update && apt-get install -y \
 
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
-RUN pip3 install --upgrade b2
+RUN pip3 install boto3
 
 COPY extract.sh .
+COPY upload.py .
+
 RUN chmod +x extract.sh
 
 ENTRYPOINT ["./extract.sh"]

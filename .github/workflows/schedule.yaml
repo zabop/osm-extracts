@@ -14,27 +14,11 @@ jobs:
       - uses: ludeeus/action-shellcheck@master
       - name: Build image
         run: docker build --tag oe --file processing/Dockerfile processing/
-      - name: Andorra
+      - name: Finland
         run: |
           docker run \
-            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
-            oe europe/andorra
-      - name: Cook Islands
-        run: |
-          docker run \
-            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
-            oe australia-oceania/cook-islands
-      - name: Liechtenstein
-        run: |
-          docker run \
-            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
-            oe europe/liechtenstein
-      - name: France
-        run: |
-          docker run \
-            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
-            oe europe/france
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/finland power europe/finland/power.gpkg

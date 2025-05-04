@@ -4,10 +4,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-target=$1
+region=$1
+filter=$2
+dst=$3
 
-curl "https://download.geofabrik.de/${target}-latest.osm.pbf" --output latest.osm.pbf
-osmium tags-filter -o power.osm.pbf latest.osm.pbf nw/power
-ogr2ogr power.gpkg power.osm.pbf
+curl "https://download.geofabrik.de/${region}-latest.osm.pbf" --output latest.osm.pbf
+osmium tags-filter -o filtered.osm.pbf latest.osm.pbf "nw/${filter}"
+ogr2ogr dst.gpkg filtered.osm.pbf
 
-b2 file upload osm-extracts power.gpkg "${target}/power.gpkg"
+python3 upload.py "${region}/${dst}"
