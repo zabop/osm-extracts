@@ -14,7 +14,7 @@ jobs:
       - uses: ludeeus/action-shellcheck@master
       - name: Build image
         run: docker build --tag oe --file processing/Dockerfile processing/
-      - name: Finland
+      - name: Finland power
         run: |
           docker run \
             --env REGION_NAME=${{ secrets.REGION_NAME }} \
@@ -22,7 +22,7 @@ jobs:
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
             oe europe/finland power power
-      - name: Iceland
+      - name: Iceland power
         run: |
           docker run \
             --env REGION_NAME=${{ secrets.REGION_NAME }} \
@@ -30,3 +30,19 @@ jobs:
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
             oe europe/iceland power power
+      - name: Norway power
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/norway power power
+      - name: Sweden power
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/sweden power power
