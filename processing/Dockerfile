@@ -5,7 +5,8 @@ WORKDIR /osm-extracts
 RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-venv \
-    osmium-tool
+    osmium-tool \
+    zip
 
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
