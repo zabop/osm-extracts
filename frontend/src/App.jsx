@@ -71,7 +71,8 @@ function App() {
         <CountryLinks key={region.path} region={region} />
       ))}
       <div>
-        Not quite what you want? Some ideas on what you can do:
+        Not quite what you want? Intersted in a region not listed above? Some
+        ideas on what you can do:
         <li>
           Look into the{" "}
           <a href="https://github.com/zabop/osm-extracts" target="_blank">
