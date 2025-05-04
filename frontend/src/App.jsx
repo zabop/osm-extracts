@@ -69,7 +69,7 @@ function App() {
       <div>
         Not quite what you want? Email zabop.github.io.uncanny066@passfwd.com.
       </div>
-      <div>Files are updated around every UTC noon.</div>
+      <div>Files are daily.</div>
       {regions.map((region) => (
         <CountryLinks key={region.path} region={region} />
       ))}
