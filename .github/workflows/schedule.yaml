@@ -17,18 +17,18 @@ jobs:
       - name: Andorra
         run: |
           docker run \
-            -e B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            -e B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
+            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
+            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
             oe europe/andorra
       - name: Cook Islands
         run: |
           docker run \
-            -e B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            -e B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
+            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
+            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
             oe australia-oceania/cook-islands
       - name: Liechtenstein
         run: |
           docker run \
-            -e B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
-            -e B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
+            --env B2_APPLICATION_KEY_ID=${{ secrets.B2_APPLICATION_KEY_ID }} \
+            --env B2_APPLICATION_KEY=${{ secrets.B2_APPLICATION_KEY }} \
             oe europe/liechtenstein
