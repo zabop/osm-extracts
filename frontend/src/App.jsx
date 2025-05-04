@@ -61,6 +61,15 @@ function CountryLinks({ region }) {
 function App() {
   return (
     <>
+      <h1>OSM Example GPKG Extracts</h1>
+      <div>
+        There are many different reasonable ways for OSM data processing. See
+        examples below.
+      </div>
+      <div>
+        Not quite what you want? Email zabop.github.io.uncanny066@passfwd.com.
+      </div>
+      <div>Files are updated around every UTC noon.</div>
       {regions.map((region) => (
         <CountryLinks key={region.path} region={region} />
       ))}
