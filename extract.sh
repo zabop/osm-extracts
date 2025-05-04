@@ -10,4 +10,4 @@ curl "https://download.geofabrik.de/${target}-latest.osm.pbf" --output latest.os
 osmium tags-filter -o power.osm.pbf latest.osm.pbf nw/power
 ogr2ogr power.gpkg power.osm.pbf
 
-b2 file upload osm-extracts power.gpkg liechtenstein/power.gpkg
+b2 file upload osm-extracts power.gpkg "${target}/power.gpkg"
