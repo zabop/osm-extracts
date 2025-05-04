@@ -17,10 +17,8 @@ function CountryLinks({ region }) {
   const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
-    // Construct the URL for the metadata JSON
     const metadataUrl = `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/yosmgm-testing0/europe/${region.path}/power.metadata.json`;
 
-    // Fetch the JSON data
     const fetchMetadata = async () => {
       const response = await fetch(metadataUrl);
       const data = await response.json();
