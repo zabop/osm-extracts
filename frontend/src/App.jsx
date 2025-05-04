@@ -17,7 +17,7 @@ function ExtractLink({ region, extract }) {
   const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
-    const baseName = extract.fname.replace(".gpkg", "");
+    const baseName = extract.fname.replace(".gpkg.zip", "");
     const metadataUrl = `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/yosmgm-testing0/${region.path}/${baseName}.metadata.json`;
 
     const fetchMetadata = async () => {
