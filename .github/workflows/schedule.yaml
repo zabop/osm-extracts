@@ -14,14 +14,6 @@ jobs:
       - uses: ludeeus/action-shellcheck@master
       - name: Build image
         run: docker build --tag oe --file processing/Dockerfile processing/
-      # - name: Finland power
-      #   run: |
-      #     docker run \
-      #       --env REGION_NAME=${{ secrets.REGION_NAME }} \
-      #       --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
-      #       --env KEY_ID=${{ secrets.KEY_ID }} \
-      #       --env SECRET=${{ secrets.SECRET }} \
-      #       oe europe/finland nw/power power
       - name: Iceland power
         run: |
           docker run \
@@ -30,30 +22,30 @@ jobs:
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
             oe europe/iceland nw/power power points lines multipolygons
-      # - name: Norway power
-      #   run: |
-      #     docker run \
-      #       --env REGION_NAME=${{ secrets.REGION_NAME }} \
-      #       --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
-      #       --env KEY_ID=${{ secrets.KEY_ID }} \
-      #       --env SECRET=${{ secrets.SECRET }} \
-      #       oe europe/norway nw/power power
-      # - name: Sweden power
-      #   run: |
-      #     docker run \
-      #       --env REGION_NAME=${{ secrets.REGION_NAME }} \
-      #       --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
-      #       --env KEY_ID=${{ secrets.KEY_ID }} \
-      #       --env SECRET=${{ secrets.SECRET }} \
-      #       oe europe/sweden nw/power power
-      # - name: Finland protected areas
-      #   run: |
-      #     docker run \
-      #       --env REGION_NAME=${{ secrets.REGION_NAME }} \
-      #       --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
-      #       --env KEY_ID=${{ secrets.KEY_ID }} \
-      #       --env SECRET=${{ secrets.SECRET }} \
-      #       oe europe/finland w/boundary=protected_area protected_areas
+      - name: Finland power
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/finland nw/power power points lines multipolygons
+      - name: Norway power
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/norway nw/power power points lines multipolygons
+      - name: Sweden power
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/sweden nw/power power points lines multipolygons
       - name: Iceland protected areas
         run: |
           docker run \
@@ -62,22 +54,30 @@ jobs:
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
             oe europe/iceland w/boundary=protected_area protected_areas multipolygons
-      # - name: Norway protected areas
-      #   run: |
-      #     docker run \
-      #       --env REGION_NAME=${{ secrets.REGION_NAME }} \
-      #       --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
-      #       --env KEY_ID=${{ secrets.KEY_ID }} \
-      #       --env SECRET=${{ secrets.SECRET }} \
-      #       oe europe/norway w/boundary=protected_area protected_areas
-      # - name: Sweden protected areas
-      #   run: |
-      #     docker run \
-      #       --env REGION_NAME=${{ secrets.REGION_NAME }} \
-      #       --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
-      #       --env KEY_ID=${{ secrets.KEY_ID }} \
-      #       --env SECRET=${{ secrets.SECRET }} \
-      #       oe europe/sweden w/boundary=protected_area protected_areas
+      - name: Finland protected areas
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/finland w/boundary=protected_area protected_areas multipolygons
+      - name: Norway protected areas
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/norway w/boundary=protected_area protected_areas multipolygons
+      - name: Sweden protected areas
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/sweden w/boundary=protected_area protected_areas multipolygons
       - name: Iceland administrative regions
         run: |
           docker run \
@@ -86,3 +86,27 @@ jobs:
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
             oe europe/iceland wr/boundary=administrative administrative_regions multipolygons
+      - name: Finland administrative regions
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/finland wr/boundary=administrative administrative_regions multipolygons
+      - name: Norway administrative regions
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/norway wr/boundary=administrative administrative_regions multipolygons
+      - name: Sweden administrative regions
+        run: |
+          docker run \
+            --env REGION_NAME=${{ secrets.REGION_NAME }} \
+            --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
+            --env KEY_ID=${{ secrets.KEY_ID }} \
+            --env SECRET=${{ secrets.SECRET }} \
+            oe europe/sweden wr/boundary=administrative administrative_regions multipolygons
