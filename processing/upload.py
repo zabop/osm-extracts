@@ -23,7 +23,7 @@ client = session.client(
 
 client.upload_file(
     f"{'_'.join(region.split("/"))}_{dst}.gpkg.zip",
-    "yosmgm-testing0",
+    "osm-extracts",
     f"{region}/{dst}.gpkg.zip",
 )
 
@@ -37,7 +37,7 @@ with open("metadata.json", "w") as f:
 
 client.upload_file(
     "metadata.json",
-    "yosmgm-testing0",
+    "osm-extracts",
     f"{region}/{dst}.metadata.json",
     ExtraArgs={
         "ContentType": "application/json",

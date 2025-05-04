@@ -18,7 +18,7 @@ function ExtractLink({ region, extract }) {
 
   useEffect(() => {
     const baseName = extract.fname.replace(".gpkg.zip", "");
-    const metadataUrl = `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/yosmgm-testing0/${region.path}/${baseName}.metadata.json`;
+    const metadataUrl = `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/osm-extracts/${region.path}/${baseName}.metadata.json`;
 
     const fetchMetadata = async () => {
       const response = await fetch(metadataUrl);
@@ -32,7 +32,7 @@ function ExtractLink({ region, extract }) {
   return (
     <li key={`${region.path}/${extract.fname}`}>
       <a
-        href={`https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/yosmgm-testing0/${region.path}/${extract.fname}`}
+        href={`https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/osm-extracts/${region.path}/${extract.fname}`}
       >
         {extract.name}
       </a>
