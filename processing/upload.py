@@ -38,7 +38,7 @@ with open("metadata.json", "w") as f:
 client.upload_file(
     "metadata.json",
     "yosmgm-testing0",
-    f"{sys.argv[1]}.metadata.json",
+    f"{region}/{dst}.metadata.json",
     ExtraArgs={
         "ContentType": "application/json",
     },
