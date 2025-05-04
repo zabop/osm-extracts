@@ -63,16 +63,59 @@ function App() {
     <>
       <h1>OSM Example GPKG Extracts</h1>
       <div>
-        There are many different reasonable ways for OSM data processing. See
-        examples below.
+        There are many different reasonable ways to process OSM data. See
+        example outputs below.
       </div>
-      <div>
-        Not quite what you want? Email zabop.github.io.uncanny066@passfwd.com.
-      </div>
-      <div>Extracts are updated daily.</div>
+      <div>Updated daily.</div>
       {regions.map((region) => (
         <CountryLinks key={region.path} region={region} />
       ))}
+      <div>
+        Not quite what you want? Some ideas on what you can do:
+        <li>
+          Look into the{" "}
+          <a href="https://github.com/zabop/osm-extracts" target="_blank">
+            processing scripts
+          </a>{" "}
+          yourself
+        </li>
+        <li>
+          Contact me on{" "}
+          <a href="mailto:osm-extracts@protonmail.com">
+            osm-extracts@protonmail.com
+          </a>{" "}
+          or{" "}
+          <a
+            href="https://www.openstreetmap.org/messages/new/zabop"
+            target="_blank"
+          >
+            on OSM
+          </a>
+          .
+        </li>
+        <li>
+          Contact{" "}
+          <a
+            href="https://www.geofabrik.de/data/vector-data.html"
+            target="_blank"
+          >
+            <a href=""></a>
+            Geofabrik
+          </a>{" "}
+          (they offer a data offer extraction service).
+        </li>{" "}
+        <li>
+          {" "}
+          If you are into power networks, you might also like{" "}
+          <a
+            href="https://www.infrageomatics.com/products/osm-export"
+            target="_blank"
+          >
+            Infrageomatics
+          </a>{" "}
+          extracts
+        </li>
+      </div>
     </>
   );
 }
