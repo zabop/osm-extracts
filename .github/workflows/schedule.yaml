@@ -53,7 +53,7 @@ jobs:
             --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
-            oe europe/finland n/boundary=protected_area protected_areas
+            oe europe/finland w/boundary=protected_area protected_areas
       - name: Iceland protected areas
         run: |
           docker run \
@@ -61,7 +61,7 @@ jobs:
             --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
-            oe europe/iceland n/boundary=protected_area protected_areas
+            oe europe/iceland w/boundary=protected_area protected_areas
       - name: Norway protected areas
         run: |
           docker run \
@@ -69,7 +69,7 @@ jobs:
             --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
-            oe europe/norway n/boundary=protected_area protected_areas
+            oe europe/norway w/boundary=protected_area protected_areas
       - name: Sweden protected areas
         run: |
           docker run \
@@ -77,4 +77,4 @@ jobs:
             --env ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} \
             --env KEY_ID=${{ secrets.KEY_ID }} \
             --env SECRET=${{ secrets.SECRET }} \
-            oe europe/sweden n/boundary=protected_area protected_areas
+            oe europe/sweden w/boundary=protected_area protected_areas
