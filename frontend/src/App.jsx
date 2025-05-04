@@ -61,7 +61,7 @@ function CountryLinks({ region }) {
 function App() {
   return (
     <>
-      <h1>OSM Example GPKG Extracts</h1>
+      <h1>OSM Example Thematic GPKG Extracts</h1>
       <div>
         There are many different reasonable ways to process OSM data. See
         example outputs below.
