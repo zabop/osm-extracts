@@ -6,6 +6,9 @@ import sys
 import os
 
 session = boto3.session.Session()
+# https://github.com/boto/boto3/issues/4435#issuecomment-2648819900
+os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
+os.environ["AWS_RESPONSE_CHECKSUM_VALIDATION"] = "when_required"
 
 client = session.client(
     "s3",
