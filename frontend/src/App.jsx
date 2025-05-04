@@ -102,7 +102,7 @@ function App() {
             <a href=""></a>
             Geofabrik
           </a>{" "}
-          (they offer a data offer extraction service)
+          (they offer a data extraction service)
         </li>{" "}
         <li>
           {" "}
