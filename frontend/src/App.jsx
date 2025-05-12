@@ -59,6 +59,10 @@ function CountryLinks({ region }) {
   );
 }
 
+function GeoJSON() {
+  return <div>Under construction.</div>;
+}
+
 function GPKG() {
   return (
     <div>
@@ -121,7 +125,25 @@ function GPKG() {
 }
 
 function App() {
-  return <GPKG />;
+  const padding = {
+    padding: 5,
+  };
+  return (
+    <Router>
+      <div>
+        <Link style={padding} to="/">
+          GPKG
+        </Link>
+        <Link style={padding} to="/geojson">
+          GeoJSON
+        </Link>
+      </div>
+      <Routes>
+        <Route path="/" element={<GPKG />} />
+        <Route path="/geojson" element={<GeoJSON />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
