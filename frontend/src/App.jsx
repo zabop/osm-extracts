@@ -66,7 +66,7 @@ function App() {
         There are many different reasonable ways to process OSM data. See
         example outputs below.
       </div>
-      <div>Updated on every weekday.</div>
+      <div>Updates every Monday.</div>
       {regions.map((region) => (
         <CountryLinks key={region.path} region={region} />
       ))}
