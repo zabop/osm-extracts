@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const regions = [
   { name: "Finland", path: "europe/finland" },
@@ -58,9 +59,9 @@ function CountryLinks({ region }) {
   );
 }
 
-function App() {
+function GPKG() {
   return (
-    <>
+    <div>
       <h1>OSM Example Thematic GPKG Extracts</h1>
       <div>
         There are many different reasonable ways to process OSM data. See
@@ -99,7 +100,6 @@ function App() {
             href="https://www.geofabrik.de/data/vector-data.html"
             target="_blank"
           >
-            <a href=""></a>
             Geofabrik
           </a>{" "}
           (they offer a data extraction service)
@@ -116,8 +116,12 @@ function App() {
           extracts
         </li>
       </div>
-    </>
+    </div>
   );
+}
+
+function App() {
+  return <GPKG />;
 }
 
 export default App;
