@@ -129,7 +129,7 @@ function App() {
     padding: 5,
   };
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <div>
         <Link style={padding} to="/">
           GPKG
