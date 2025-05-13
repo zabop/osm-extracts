@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const regions = [
   { name: "Finland", path: "europe/finland" },
@@ -129,7 +129,7 @@ function App() {
     padding: 5,
   };
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <div>
         <Link style={padding} to="/">
           GPKG
