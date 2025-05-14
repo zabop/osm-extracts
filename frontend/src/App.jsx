@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 
 const regions = [
   { name: "Finland", path: "europe/finland" },
@@ -59,10 +65,31 @@ function CountryLinks({ region }) {
   );
 }
 
-function GeoJSON() {
-  return <div>Under construction.</div>;
-}
+const Region = ({ region }) => {
+  const name = useParams().region;
+  return (
+    <div>
+      <h2>{name}</h2>
+      <div>{name}</div>
+    </div>
+  );
+};
+const Regions = ({ regions }) => {
+  console.log("regions", regions);
 
+  return (
+    <div>
+      <div>Under construction.</div>
+      <ul>
+        {regions.map((region) => (
+          <li key={region.name}>
+            <Link to={`/geojsons/${region.name}`}>{region.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 function GPKG() {
   return (
     <div>
@@ -134,13 +161,17 @@ function App() {
         <Link style={padding} to="/">
           GPKG
         </Link>
-        <Link style={padding} to="/geojson">
+        <Link style={padding} to="/geojsons">
           GeoJSON
         </Link>
       </div>
       <Routes>
         <Route path="/" element={<GPKG />} />
-        <Route path="/geojson" element={<GeoJSON />} />
+        <Route path="/geojsons" element={<Regions regions={regions} />} />
+        <Route
+          path="/geojsons/:region"
+          element={<Region regions={regions} />}
+        />
       </Routes>
     </Router>
   );
