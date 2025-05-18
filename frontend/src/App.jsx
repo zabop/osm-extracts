@@ -81,8 +81,6 @@ const Region = ({ region }) => {
   );
 };
 const Regions = ({ regions }) => {
-  console.log("regions", regions);
-
   return (
     <div>
       <div>Under construction.</div>
