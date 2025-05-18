@@ -1,0 +1,5 @@
+.DS_Store
+*.gpkg
+*.gpkg.zip
+*.osm.pbf
+*.oql
