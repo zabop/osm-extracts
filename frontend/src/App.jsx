@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {
+  useQuery,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+import {
   HashRouter as Router,
   Routes,
   Route,
@@ -22,6 +30,17 @@ const extracts = [
 
 function ExtractLink({ region, extract }) {
   const [lastUpdated, setLastUpdated] = useState(null);
+
+  const metadata = useQuery({
+    queryKey: ["metadata"],
+    queryFn: () =>
+      fetch(
+        `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/osm-extracts/${
+          region.path
+        }/${extract.fname.replace(".gpkg.zip", "")}.metadata.json`
+      ).then((res) => res.json()),
+  });
+  console.log(metadata);
 
   useEffect(() => {
     const baseName = extract.fname.replace(".gpkg.zip", "");
@@ -156,24 +175,26 @@ function App() {
     padding: 5,
   };
   return (
-    <Router>
-      <div>
-        <Link style={padding} to="/">
-          GPKG
-        </Link>
-        <Link style={padding} to="/geojsons">
-          GeoJSON
-        </Link>
-      </div>
-      <Routes>
-        <Route path="/" element={<GPKG />} />
-        <Route path="/geojsons" element={<Regions regions={regions} />} />
-        <Route
-          path="/geojsons/:region"
-          element={<Region regions={regions} />}
-        />
-      </Routes>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <div>
+          <Link style={padding} to="/">
+            GPKG
+          </Link>
+          <Link style={padding} to="/geojsons">
+            GeoJSON
+          </Link>
+        </div>
+        <Routes>
+          <Route path="/" element={<GPKG />} />
+          <Route path="/geojsons" element={<Regions regions={regions} />} />
+          <Route
+            path="/geojsons/:region"
+            element={<Region regions={regions} />}
+          />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
