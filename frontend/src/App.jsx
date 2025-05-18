@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {
   useQuery,
   QueryClient,
@@ -29,10 +28,8 @@ const extracts = [
 ];
 
 function ExtractLink({ region, extract }) {
-  const [lastUpdated, setLastUpdated] = useState(null);
-
   const metadata = useQuery({
-    queryKey: ["metadata"],
+    queryKey: ["metadata", region.path, extract.fname],
     queryFn: () =>
       fetch(
         `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/osm-extracts/${
@@ -40,20 +37,10 @@ function ExtractLink({ region, extract }) {
         }/${extract.fname.replace(".gpkg.zip", "")}.metadata.json`
       ).then((res) => res.json()),
   });
-  console.log(metadata);
 
-  useEffect(() => {
-    const baseName = extract.fname.replace(".gpkg.zip", "");
-    const metadataUrl = `https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/osm-extracts/${region.path}/${baseName}.metadata.json`;
-
-    const fetchMetadata = async () => {
-      const response = await fetch(metadataUrl);
-      const data = await response.json();
-      setLastUpdated(data["last-upload-human-readable"]);
-    };
-
-    fetchMetadata();
-  }, [region.path, extract]);
+  if (metadata.isLoading) {
+    return <div>loading data...</div>;
+  }
 
   return (
     <li key={`${region.path}/${extract.fname}`}>
@@ -61,8 +48,8 @@ function ExtractLink({ region, extract }) {
         href={`https://ukzckrzlamlgsschrwgd.supabase.co/storage/v1/object/public/osm-extracts/${region.path}/${extract.fname}`}
       >
         {extract.name}
-      </a>
-      {lastUpdated && ` (last updated: ${lastUpdated} UTC)`}
+      </a>{" "}
+      (last updated: {metadata.data["last-upload-human-readable"]} UTC)
     </li>
   );
 }
